@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="KISSALUA - Indústria e Serviços, LDA. Construção Civil, Reformas, Carpintaria, Serralharia e muito mais em Luanda, Angola.">
+    <meta name="keywords" content="construção civil, reformas, carpintaria, Angola, Luanda, KISSALUA">
+    <title>KISSALUA - Indústria e Serviços, LDA</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-custom .card-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px;
+            border: none;
+        }
+
+        .card-custom .card-body {
+            padding: 30px;
+            background: white;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+.navbar{
+    background-color: #5DADE2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: #5DADE2;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 998;
+        padding: 20px 0;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 5px;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .mobile-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .logo {
+        z-index: 1001;
+        position: relative;
+    }
+    
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-toggle {
+        display: none;
+    }
+    
+    body {
+        padding-top: 90px;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.logo-text p {
+    font-size: 0.65rem;
+    color: var(--secondary-color);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 5px;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition-normal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.card-custom .card-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px;
+            border: none;
+        }
+</style>
+
+</head>
+<body>
+    <!-- Cabeçalho e Navegação -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a class="navbar-brand" href="#home">
+                         <img src="IMG_8582.png" class="logo" height="50" length="50">
+                        </a>
+                        <div class="logo-text"> 
+                            <h1>KISSALUA</h1>
+                            <p style="color:white;">INDÚSTRIA E SERVIÇOS, LDA</p>
+                        </div>
+                    </div>
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="nav-link active">Início</a></li>
+                        <li><a href="#services" class="nav-link">Serviços</a></li>
+                        <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+                        <li><a href="#contact" class="nav-link">Contactos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">Construindo o Futuro de Angola</h1>
+                <p class="hero-subtitle">Excelência em Construção Civil, Carpintaria, Serralharia e Serviços Industriais</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Nossos Serviços</a>
+                    <a href="#contact" class="btn btn-secondary">Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-subtitle">Soluções completas para o seu negócio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Construção Civil e Reformas</h3>
+                    <p>Projetos completos de construção e reforma com qualidade e segurança.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Fiscalização de Obras</h3>
+                    <p>Acompanhamento profissional para garantir a excelência do seu projeto.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Projetos Arquitetónicos</h3>
+                    <p>Projetos arquitetónicos, urbanísticos e de paisagismo personalizados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Carpintaria e Serralharia</h3>
+                    <p>Serviços especializados em carpintaria e serralharia sob medida.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Formação Profissional</h3>
+                    <p>Cursos de carpintaria e marcenaria com certificação.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Manutenção de Equipamentos</h3>
+                    <p>Manutenção de equipamentos de restauração e panificação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                          <h2 class="section-title">Sobre a KISSALUA</h2>
+                    <p class="about-description">
+                        A KISSALUA - Indústria e Serviços, LDA é uma empresa angolana comprometida com a excelência 
+                        na prestação de serviços nas áreas de construção civil, indústria e comércio. Com sede em 
+                        Luanda, no Distrito de Talatona, oferecemos soluções completas e personalizadas para atender 
+                        às necessidades dos nossos clientes.
+                     <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card-custom">
+                        <div class="card-header">
+                            <i class="fas fa-bullseye"></i> Missão
+                        </div>
+                        <div class="card-body">
+                            <p class="lead" style="font-weight: 400;">Fornecer serviços industriais e técnicos de excelência, contribuindo para o desenvolvimento de Angola através de soluções inovadoras e sustentáveis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-custom">
+                        <div class="card-header">
+                            <i class="fas fa-eye"></i> Visão
+                        </div>
+                        <div class="card-body">
+                            <p class="lead" style="font-weight: 400;">Ser a empresa líder em serviços industriais integrados em Angola, reconhecida pela qualidade, inovação e compromisso com os clientes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-custom">
+                        <div class="card-header">
+                            <i class="fas fa-heart"></i> Valores
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Excelência e qualidade</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Compromisso e profissionalismo</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Inovação constante</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Transparência e ética</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Sustentabilidade</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Satisfação do cliente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores e Diferenciais -->
+    <section id="valores" class="py-5">
+        <div class="container">
+                 <h2 class="section-title">Nossos Diferenciais</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Por que escolher a KISSALUA?</h3>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-star fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Experiência Comprovada</h5>
+                                    <p>Equipe altamente qualificada com vasta experiência no mercado angolano.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-certificate fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Qualidade Garantida</h5>
+                                    <p>Compromisso com os mais altos padrões de qualidade em todos os serviços.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-clock fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Pontualidade</h5>
+                                    <p>Cumprimento rigoroso de prazos e compromissos estabelecidos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-handshake fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Atendimento Personalizado</h5>
+                                    <p>Soluções customizadas para atender às necessidades específicas de cada cliente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-custom">
+                        <div class="card-body">
+                                 <h2 class="section-title">Áreas de Actuação</h2>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Construção e Infraestrutura</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Indústria e Manufatura</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Comércio e Distribuição</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Manutenção Industrial</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Formação e Capacitação</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Gestão de Recursos Naturais</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes e Parceiros -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Clientes</h2>
+                <p class="section-subtitle">Sectores que confiam na KISSALUA</p>
+            </div>
+            <div class="clients-showcase">
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Sector Industrial</h3>
+                    <p>Soluções completas para indústrias</p>
+                </div>
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Sector Hoteleiro</h3>
+                    <p>Reformas e manutenção especializada</p>
+                </div>
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Empresas Privadas</h3>
+                    <p>Projetos corporativos de excelência</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contacto</h2>
+                <p class="section-subtitle">Estamos prontos para ajudar o seu negócio</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Localização</h3>
+                            <p>Distrito de Talatona, Bloco 4<br>Luanda, Angola</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefone</h3>
+                            <p>+244 923 538 034<br>+244 923 248 782</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-mail</h3>
+                            <p>geral@kissalua.ao<br>amandio.panzo@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <div id="formSuccess" class="form-message success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Mensagem enviada com sucesso! Entraremos em contacto em breve.</p>
+                    </div>
+                    <div id="formError" class="form-message error" style="display: none;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Por favor, preencha todos os campos corretamente.</p>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Seu Telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Selecione um Serviço</option>
+                                <option value="construcao">Construção Civil e Reformas</option>
+                                <option value="fiscalizacao">Fiscalização de Obras</option>
+                                <option value="projetos">Projetos Arquitetónicos</option>
+                                <option value="stands">Stands para Feiras</option>
+                                <option value="carpintaria">Carpintaria e Serralharia</option>
+                                <option value="sofas">Fabricação de Sofás</option>
+                                <option value="comercio">Comércio Geral</option>
+                                <option value="florestal">Exploração Florestal</option>
+                                <option value="blocos">Produção de Blocos</option>
+                                <option value="formacao">Formação Profissional</option>
+                                <option value="manutencao">Manutenção de Equipamentos</option>
+                                <option value="camaras">Câmaras Frigoríficas</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para Iniciar Seu Projeto?</h2>
+                <p>Entre em contacto conosco e descubra como podemos transformar suas ideias em realidade</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">Solicitar Orçamento</a>
+                    <a href="tel:+244923538034" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Ligar Agora
+                    </a>
+                </div>
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Orçamento Gratuito</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Resposta em 24h</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia de Qualidade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>KISSALUA</h3>
+                        <p>INDÚSTRIA E SERVIÇOS, LDA</p>
+                    </div>
+                    <p class="footer-description">
+                        Comprometidos com a excelência e qualidade em todos os serviços prestados.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Construção Civil</a></li>
+                        <li><a href="#services">Carpintaria</a></li>
+                        <li><a href="#services">Serralharia</a></li>
+                        <li><a href="#services">Formação Profissional</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +244 923 538 034</li>
+                        <li><i class="fas fa-envelope"></i> geral@kissalua.ao</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Talatona, Luanda</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horário</h4>
+                    <ul class="footer-hours">
+                        <li>Segunda - Sexta: 8h - 18h</li>
+                        <li>Sábado: 8h - 13h</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KISSALUA - Indústria e Serviços, LDA. Todos os direitos reservados.</p>
+                <p class="footer-credit">Todos os textos, imagens, gráficos e outros materiais são protegidos por direitos autorais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Menu hambúrguer - código corrigido
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Toggle do menu
+            mobileToggle.addEventListener('click', function() {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Fechar menu ao clicar em um link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = navMenu.contains(event.target);
+                const isClickOnToggle = mobileToggle.contains(event.target);
+
+                if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Restante do seu JavaScript original
+        // Botão voltar ao topo
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && phone && service && message) {
+                formError.style.display = 'none';
+                formSuccess.style.display = 'block';
+                contactForm.reset();
+                
+                setTimeout(function() {
+                    formSuccess.style.display = 'none';
+                }, 5000);
+            } else {
+                formSuccess.style.display = 'none';
+                formError.style.display = 'block';
+                
+                setTimeout(function() {
+                    formError.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Smooth scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
