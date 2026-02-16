@@ -102,9 +102,9 @@ ul {
 }
 
 .logo-text h1 {
-    font-size: 50px;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    font-weight: bold;
+    font-weight: 700;
     line-height: 1.2;
     margin: 0;
 }
@@ -170,6 +170,7 @@ ul {
     width: 30px;
     height: 3px;
     margin: 5px 0;
+	 margin-left: 100px;
     background-color: white;
     transition: all 0.3s ease-in-out;
 }
@@ -325,22 +326,28 @@ section {
     margin-bottom: var(--spacing-xl);
 }
 
+.section-header {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+}
+
 .section-title {
     font-size: clamp(2rem, 4vw, 2.5rem);
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: 700;
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: left;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
+    left: 0;
+    transform: none;
+    width: 80px;
     height: 4px;
     background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
     border-radius: 2px;
@@ -350,7 +357,6 @@ section {
     font-size: 1.1rem;
     color: var(--text-light);
     max-width: 600px;
-    margin: 0 auto;
     margin-top: var(--spacing-md);
 }
 
@@ -685,7 +691,8 @@ section {
 
 .form-group input,
 .form-group textarea,
-.form-group select {
+.form-group select, 
+.form-group option{
     padding: var(--spacing-sm);
     border: 2px solid var(--border-color);
     border-radius: 5px;
@@ -696,7 +703,8 @@ section {
 
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
+.form-group select:focus 
+.form-group option:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(11, 83, 148, 0.1);
@@ -924,11 +932,11 @@ section {
     }
     
     .logo-text h1 {
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
     
     .logo-text p {
-        font-size: 0.55rem;
+        font-size: 0.65rem;
     }
     
     section {
