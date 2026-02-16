@@ -9,231 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="description" content="KISSALUA - Indústria e Serviços, LDA. Construção Civil, Reformas, Carpintaria, Serralharia e muito mais em Luanda, Angola.">
     <meta name="keywords" content="construção civil, reformas, carpintaria, Angola, Luanda, KISSALUA">
     <title>KISSALUA - Indústria e Serviços, LDA</title>
     <link rel="stylesheet" href="styles.css">
-<style>
-        .card-custom {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .card-custom:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .card-custom .card-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 20px;
-            border: none;
-        }
-
-        .card-custom .card-body {
-            padding: 30px;
-            background: white;
-        }
-
-        .icon-box {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: white;
-        }
-.navbar{
-    background-color: #5DADE2;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-body {
-    padding-top: 80px;
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 80px;
-        flex-direction: column;
-        background-color: #5DADE2;
-        width: 100%;
-        text-align: center;
-        transition: left 0.3s ease;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        z-index: 998;
-        padding: 20px 0;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-
-    .mobile-toggle {
-        display: block;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 5px;
-        z-index: 1001;
-        position: relative;
-    }
-
-    .mobile-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: white;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .mobile-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .mobile-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .mobile-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .logo {
-        z-index: 1001;
-        position: relative;
-    }
-    
-    .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-    }
-}
-
-@media (min-width: 769px) {
-    .mobile-toggle {
-        display: none;
-    }
-    
-    body {
-        padding-top: 90px;
-    }
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.logo-img {
-    width: 55px;
-    height: 55px;
-    flex-shrink: 0;
-}
-
-.logo-text h1 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.logo-text p {
-    font-size: 0.65rem;
-    color: var(--secondary-color);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.nav-menu {
-    display: flex;
-    gap: var(--spacing-md);
-    align-items: center;
-}
-
-.nav-link {
-    color: var(--text-dark);
-    font-weight: 500;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 5px;
-    transition: var(--transition-fast);
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: var(--transition-normal);
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-color);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 80%;
-}
-
-.card-custom .card-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 20px;
-            border: none;
-        }
-</style>
-
 </head>
 <body>
-    <!-- Cabeçalho e Navegação -->
     <header id="header">
         <nav class="navbar">
             <div class="container">
                 <div class="nav-wrapper">
                     <div class="logo">
                         <a class="navbar-brand" href="#home">
-                         <img src="IMG_8582.png" class="logo" height="50" length="50">
+                         <img src="IMG_8582.png" class="logo-img" alt="KISSALUA Logo">
                         </a>
                         <div class="logo-text"> 
                             <h1>KISSALUA</h1>
-                            <p style="color:white;">INDÚSTRIA E SERVIÇOS, LDA</p>
+                            <p>INDÚSTRIA E SERVIÇOS, LDA</p>
                         </div>
                     </div>
                     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -252,7 +44,6 @@ body {
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -267,7 +58,6 @@ body {
         </div>
     </section>
 
-    <!-- Serviços -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
@@ -321,58 +111,60 @@ body {
         </div>
     </section>
 
-    <!-- Sobre Nós -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                          <h2 class="section-title">Sobre a KISSALUA</h2>
+                    <h2 class="section-title">Sobre a KISSALUA</h2>
                     <p class="about-description">
                         A KISSALUA - Indústria e Serviços, LDA é uma empresa angolana comprometida com a excelência 
                         na prestação de serviços nas áreas de construção civil, indústria e comércio. Com sede em 
                         Luanda, no Distrito de Talatona, oferecemos soluções completas e personalizadas para atender 
                         às necessidades dos nossos clientes.
-                     <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card-custom">
-                        <div class="card-header">
-                            <i class="fas fa-bullseye"></i> Missão
-                        </div>
-                        <div class="card-body">
-                            <p class="lead" style="font-weight: 400;">Fornecer serviços industriais e técnicos de excelência, contribuindo para o desenvolvimento de Angola através de soluções inovadoras e sustentáveis.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card-custom">
-                        <div class="card-header">
-                            <i class="fas fa-eye"></i> Visão
-                        </div>
-                        <div class="card-body">
-                            <p class="lead" style="font-weight: 400;">Ser a empresa líder em serviços industriais integrados em Angola, reconhecida pela qualidade, inovação e compromisso com os clientes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card-custom">
-                        <div class="card-header">
-                            <i class="fas fa-heart"></i> Valores
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Excelência e qualidade</li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Compromisso e profissionalismo</li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Inovação constante</li>
-                                    </ul>
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card-custom">
+                                <div class="card-header">
+                                    <i class="fas fa-bullseye"></i> Missão
                                 </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Transparência e ética</li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Sustentabilidade</li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Satisfação do cliente</li>
-                                    </ul>
+                                <div class="card-body">
+                                    <p class="lead">Fornecer serviços industriais e técnicos de excelência, contribuindo para o desenvolvimento de Angola através de soluções inovadoras e sustentáveis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-custom">
+                                <div class="card-header">
+                                    <i class="fas fa-eye"></i> Visão
+                                </div>
+                                <div class="card-body">
+                                    <p class="lead">Ser a empresa líder em serviços industriais integrados em Angola, reconhecida pela qualidade, inovação e compromisso com os clientes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-custom">
+                                <div class="card-header">
+                                    <i class="fas fa-heart"></i> Valores
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Excelência e qualidade</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Compromisso e profissionalismo</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Inovação constante</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Transparência e ética</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Sustentabilidade</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Satisfação do cliente</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -382,10 +174,9 @@ body {
         </div>
     </section>
 
-    <!-- Valores e Diferenciais -->
     <section id="valores" class="py-5">
         <div class="container">
-                 <h2 class="section-title">Nossos Diferenciais</h2>
+            <h2 class="section-title">Nossos Diferenciais</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h3 class="mb-4">Por que escolher a KISSALUA?</h3>
@@ -431,7 +222,7 @@ body {
                 <div class="col-lg-6">
                     <div class="card-custom">
                         <div class="card-body">
-                                 <h2 class="section-title">Áreas de Actuação</h2>
+                            <h2 class="section-title">Áreas de Actuação</h2>
                             <ul class="list-unstyled">
                                 <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Construção e Infraestrutura</li>
                                 <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Indústria e Manufatura</li>
@@ -446,13 +237,7 @@ body {
             </div>
         </div>
     </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Clientes e Parceiros -->
     <section class="clients">
         <div class="container">
             <div class="section-header">
@@ -481,11 +266,10 @@ body {
                     <h3>Empresas Privadas</h3>
                     <p>Projetos corporativos de excelência</p>
                 </div>
-                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -519,11 +303,6 @@ body {
                         <div class="contact-details">
                             <h3>E-mail</h3>
                             <p>geral@kissalua.ao<br>amandio.panzo@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
                         </div>
                     </div>
                 </div>
@@ -574,7 +353,6 @@ body {
         </div>
     </section>
 
-    <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
@@ -604,7 +382,6 @@ body {
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -650,25 +427,21 @@ body {
         </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
     <button class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Menu hambúrguer - código corrigido
         document.addEventListener('DOMContentLoaded', function() {
             const mobileToggle = document.getElementById('mobileToggle');
             const navMenu = document.getElementById('navMenu');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            // Toggle do menu
             mobileToggle.addEventListener('click', function() {
                 mobileToggle.classList.toggle('active');
                 navMenu.classList.toggle('active');
             });
 
-            // Fechar menu ao clicar em um link
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     mobileToggle.classList.remove('active');
@@ -676,7 +449,6 @@ body {
                 });
             });
 
-            // Fechar menu ao clicar fora
             document.addEventListener('click', function(event) {
                 const isClickInsideNav = navMenu.contains(event.target);
                 const isClickOnToggle = mobileToggle.contains(event.target);
@@ -688,8 +460,6 @@ body {
             });
         });
 
-        // Restante do seu JavaScript original
-        // Botão voltar ao topo
         const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', function() {
@@ -707,7 +477,6 @@ body {
             });
         });
 
-        // Formulário de contato
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
         const formError = document.getElementById('formError');
@@ -739,7 +508,6 @@ body {
             }
         });
 
-        // Smooth scroll para links âncora
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -755,4 +523,3 @@ body {
     </script>
 </body>
 </html>
-
